@@ -15,6 +15,12 @@ public:
 	// Sets default values for this actor's properties
 	AMovingPlatform();
 
+	const FVector& GetMoveVelocity() const { return MoveVelocity; }
+	const FVector& GetMaxRange() const { return MaxRange; }
+
+	void SetMoveVelocity(FVector velocity) { MoveVelocity = velocity; }
+	void SetMaxRange(FVector maxRange) { MaxRange = maxRange; }
+
 protected:
 	// Called when the game starts or when spawned
 	virtual void BeginPlay() override;

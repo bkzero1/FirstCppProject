@@ -21,8 +21,8 @@ AMovingPlatform::AMovingPlatform()
 	{
 		StaticMeshComp->SetStaticMesh(MeshAsset.Object);
 	}
-
-	static ConstructorHelpers::FObjectFinder<UMaterial> MaterialAsset(TEXT("/Engine/EditorResources/FieldNodes/_Resources/M_FieldRadiusPreview.M_FieldRadiusPreview"));
+	
+	static ConstructorHelpers::FObjectFinder<UMaterial> MaterialAsset(TEXT("/Engine/EditorResources/FieldNodes/_Resources/M_FieldVolumePreview.M_FieldVolumePreview"));
 	if (MaterialAsset.Succeeded())
 	{
 		StaticMeshComp->SetMaterial(0, MaterialAsset.Object);

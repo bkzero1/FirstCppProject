@@ -36,7 +36,7 @@ void ARotatingPlatform::BeginPlay()
 	Super::BeginPlay();
 
 	GetWorld()->GetTimerManager().SetTimer(MoveTimerHandle, this, &ARotatingPlatform::MoveByTimer, SetTime, IsRepeat);
-	GetWorld()->GetTimerManager().SetTimer(DestroyTimerHandle, this, &ARotatingPlatform::DestroyActor, DestroyTime, false);
+	GetWorld()->GetTimerManager().SetTimer(DestroyTimerHandle, this, &ARotatingPlatform::DestroyActorByTimer, DestroyTime, false);
 }
 
 void ARotatingPlatform::MoveByTimer()
@@ -47,7 +47,7 @@ void ARotatingPlatform::MoveByTimer()
 	MoveOffset *= -1;
 }
 
-void ARotatingPlatform::DestroyActor()
+void ARotatingPlatform::DestroyActorByTimer()
 {
 	Destroy();
 }
