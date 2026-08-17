@@ -27,7 +27,7 @@ AItem::AItem()
 
 	// 2. 화면에 보일 메시 컴포넌트를 만든다.
 	StaticMeshComp = CreateDefaultSubobject<UStaticMeshComponent>(TEXT("StaticMesh"));
-
+ 
 	// 3. 메시를 루트 기준점 아래에 붙인다.
 	StaticMeshComp->SetupAttachment(SceneRoot);
 
