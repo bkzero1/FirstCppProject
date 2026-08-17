@@ -5,6 +5,7 @@
 #include "CoreMinimal.h"
 #include "GameFramework/Actor.h"
 #include "RotatingPlatform.generated.h"
+//#include "TimerManager.h"
 
 UCLASS()
 class FIRSTCPPPROJECT_API ARotatingPlatform : public AActor
@@ -29,6 +30,26 @@ protected:
 
 	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Platform|Rotation")
 	float RotateSpeed;
+
+	FTimerHandle MoveTimerHandle;
+
+	void MoveByTimer();
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Platform|Movement")
+	FVector MoveOffset = FVector(0.0f, 0.0f, 100.0f);
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Platform|Movement")
+	float SetTime = 0.0f;
+
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Platform|Movement")
+	bool IsRepeat = false;
+
+	FTimerHandle DestroyTimerHandle;
+
+	void DestroyActor();
+	
+	UPROPERTY(EditAnywhere, BlueprintReadWrite, Category = "Platform|Destroy")
+	float DestroyTime = 0.0f;
 	
 public:	
 	// Called every frame

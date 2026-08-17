@@ -34,6 +34,22 @@ ARotatingPlatform::ARotatingPlatform()
 void ARotatingPlatform::BeginPlay()
 {
 	Super::BeginPlay();
+
+	GetWorld()->GetTimerManager().SetTimer(MoveTimerHandle, this, &ARotatingPlatform::MoveByTimer, SetTime, IsRepeat);
+	GetWorld()->GetTimerManager().SetTimer(DestroyTimerHandle, this, &ARotatingPlatform::DestroyActor, DestroyTime, false);
+}
+
+void ARotatingPlatform::MoveByTimer()
+{
+	UE_LOG(LogTemp, Warning, TEXT("Timer"));
+
+	SetActorLocation(GetActorLocation() + MoveOffset);
+	MoveOffset *= -1;
+}
+
+void ARotatingPlatform::DestroyActor()
+{
+	Destroy();
 }
 
 // Called every frame
